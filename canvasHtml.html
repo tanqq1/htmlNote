@@ -25,6 +25,7 @@
                 <li>strokeRect(x,y,width,height)--矩形框描边</li>
                 <li>clearRect(x,y,width,height)--清理矩形区域</li>
                 <li>fillStyle="pink" - 设置填充颜色</li>
+                <li>globalAlpha=0.2  --颜色透明度</li>
             </ol>
 
             <ul>
@@ -36,19 +37,40 @@
                 <li>closePath()闭合路径</li>
             </ul>
             <ol>
-                <li> arc(x,y,radius,begin,end,direct)绘制圆弧(圆心x\y,半径,开始弧线位置，结束弧线位置，方向(顺、逆) )</li>
+                <li> 
+                    arc(x,y,radius,begin,end,direct)绘制圆弧(圆心x\y,半径,
+                    开始弧线位置，结束弧线位置，方向(顺、逆) )
+                </li>
                 <li>quadrativCurveTo(cp1x, cp1y, x, y)二次贝塞尔曲线</li>
                 <li>bezierCuerveTo(cp1x, cp1y, cp2x, cp2y, x, y)三次贝塞尔曲线</li>
             </ol>
+            <h3>线条样式</h3>
+            <h3>canvasGradient对象</h3>
+            <ul>
+                <li>lineWidth = value</li>
+                <li>lineCap = ['butt'|'round'|'square'](边宽半径的一半)</li>
+                <li>lineJoin = ['round','miter','bevel'](两段线的连接样式)</li>
+                <li>minterLimit</li>
+                <li>getLineDash</li>
+                <li>
+                    setLineDash([lineWidth,spaceWidth]) 
+                    ----设置虚线样式，接受一个数组，分别定义线宽与间隔宽度
+                </li>
+                <li>lineDashOffset</li>
+                <li>createLinearGradient(x1,y1,x2,y2)渐变线</li>
+                <li>createRadialGradient(x1,y1,r1,x2,y2,r2)渐变圆</li>
+                <li>gradient.addColorStop(1,'black')</li>
+            </ul>
             <h3>new Path2D() 记录路径</h3>
         </div>
         <div>
             <button onclick="addRect()">画一个矩形</button>
             <button onclick="clearRect()">clear region</button>
-            <button onclick="addOtherGraph()">菱形</button>
+            <button onclick="addLineGraph()">菱形</button>
             <button onclick="addArc()">笑脸</button>
             <button onclick="bezierGraph()">通过贝塞尔曲线来绘制</button>
             <button onclick="bezierGraphRight()">通过贝塞尔曲线来绘制</button>
+            <button onclick="lineStyleTest()">直线的相关属性样式</button>
         </div>
         <canvas id="canvas" width="500" height="500">该浏览器版本不支持canvas</canvas>
         <script>
@@ -76,15 +98,17 @@
                 ctx.clearRect(40,40,50,100);
             }
 
-            function addOtherGraph(){
+            function addLineGraph(){
                 const ctx = getCanvasNode();
                 ctx.beginPath();
                 ctx.moveTo(200,200);
                 ctx.lineTo(230,230);
+                // ctx.lineCap = 'round';
                 ctx.lineTo(200,260);
                 ctx.lineTo(170,230);
                 ctx.fillStyle="blue";
                 ctx.fill();
+                // ctx.stroke();
             }
 
             function addArc(){
@@ -133,6 +157,25 @@
                 graphNode.bezierCurveTo(250, 480, 310, 350, 360, 280);
                 graphNode.strokeStyle = '#000000';
                 graphNode.stroke()
+            }
+        
+            function lineStyleTest(){
+                const canvas = getCanvasNode();
+                canvas.moveTo(20,20);
+                canvas.lineTo(20,200);
+                canvas.lineWidth = 20; //线条宽度
+                // canvas.lineCap = 'round'; //线条末端样式
+                canvas.strokeStyle = 'rgba(234,25,168)'; //填充颜色
+                canvas.globalAlpha = 0.2;    //透明度
+                // canvas.strokeStyle = 'rgba(234,25,168,0.4)';
+                canvas.lineJoin = 'round';
+                canvas.setLineDash([8,1])
+                canvas.lineTo(100,220);
+                const gradient = canvas.createLinearGradient(20,20,20,200);
+                gradient.addColorStop(0.1,'black');
+                gradient.addColorStop(0.2,'#452367');
+                gradient.addColorStop(0.5,'#678956');
+                canvas.stroke();
             }
         </script>
     </body>
