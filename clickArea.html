@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>点击下面的div</title>
+        <style>
+            div {
+                background-color: red;
+                height:100px;
+                width:25%;
+                float: left;
+                display: none;
+                /* visibility: hidden; */
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            Array(16).fill(1).map(item => {
+                const div = document.createElement('div');
+                document.body.appendChild(div);
+            })
+            function random(num){
+                return Math.floor(Math.random() * num);
+            }
+    
+            function btnChange(){
+                return'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+            }
+    
+            const divs = document.querySelectorAll('div');
+            divs.forEach((item, index) => {
+                divs[index].onclick = function(e){
+                    // const bgColor = btnChange()
+                    const bgColor = 'rgb(123,234,134)'
+                    e.target.style.backgroundColor = bgColor;
+                    // 颜色有相同的则移除
+                    // divs.forEach((ele,index) => {
+                    //     if(ele.style.backgroundColor){
+                    //         console.log("ele.style.backgroundColor",ele.style)
+                    //     }
+                    //     if(ele.style.backgroundColor + '' === bgColor){
+                    //         console.log("this is same")
+                    //         document.body.removeChild(ele)
+                    //         document.body.removeChild(item);
+                    //     }
+                    // })
+                }
+            })
+        </script>
+        <p>事件的冒泡与捕获</p>
+        <div onclick="divClick()" style="background-color: blueviolet;float:none; clear: both;">
+            外层
+            <div id="inlineDiv" style="background-color: antiquewhite;float: none;clear: both;">
+                内层
+            </div>
+        </div>
+        <button>click</button>
+        <button onclick="divClick()">twice</button>
+
+        <script>
+            function divClick(e){
+                console.log('11111111');
+            }
+            let inlineEle = document.getElementById('inlineDiv');
+            inlineEle.onclick =  (e) => {
+                e.stopPropagation();
+            }
+        </script>
+        <script>
+            // js事件阻塞。是指如果前一任务耗时比较大，则后面的任务需要等待前一任务执行完才能执行，造成阻塞
+            const btn = document.querySelector('button');
+            btn.addEventListener('click', () => {
+            let myDate;
+            for(let i = 0; i < 10000000; i++) {
+                let date = new Date();
+                myDate = date
+            }
+
+            console.log(myDate);
+
+            let pElem = document.createElement('p');
+            pElem.textContent = 'This is a newly-added paragraph.';
+            document.body.appendChild(pElem);
+            });
+        </script>
+    </body>
+</html>

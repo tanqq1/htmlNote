@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple synchronous JavaScript example</title>
+    <style>
+      li {
+        color:bisque
+      }
+    
+    </style>
+    <script>
+      let RAF;
+      setTimeout(sayHi, 1000, 'tanqq','second'); //hello:tanqq
+      // clearTimeOut(ID)
+
+      let iId = setInterval((name)=>{console.log("就这样试试吧")},0,'tqq');
+
+      function sayHi(name){
+        console.log("hello:",name);
+        clearInterval(iId);
+        // cancelAnimationFrame(RAF)
+      }
+
+      function draw(){
+        console.log("就这样试试吧");
+        RAF = requestAnimationFrame(draw);
+      };
+      // draw()
+
+      function mapToInt(){
+       let arr = ['1','7','11'].map(parseInt)
+       console.log('arr change.....',arr)
+      }
+      mapToInt();
+
+      function timeoutPromise(message,interval){
+        return new Promise((resolve,reject) => {
+          if(!message){
+            reject("No Message!!!!");
+          } else {
+            resolve(message);
+          }
+        })
+      }
+
+      timeoutPromise().then(res => {
+        console.log("resss",res)
+      }).catch(err=> {
+        console.log("errrr",err)
+      })
+
+    </script>
+  </head>
+  <body>
+    <button>Click me</button>
+    <pre>
+      三个异步方法
+    </pre>
+    <ol>
+      <li>setTimeout(clearTimeOut)</li>
+      <li>setInterval(clearInterval))</li>
+      <li>requestAnimationFrame(cancelAnimationFrame)</li>
+    </ol>
+    <!-- <script>
+      const btn = document.querySelector('button');
+      const worker = new Worker('clickArea.html')
+    //   const worker = new Worker('worker.js');
+      btn.addEventListener('click', () => {
+        worker.postMessage('Go!');
+        let pElem = document.createElement('p');
+        pElem.textContent = 'This is a newly-added paragraph.';
+        document.body.appendChild(pElem);
+      });
+      worker.onmessage = function(e) {
+        console.log(e.data);
+      }
+    </script> -->
+  </body>
+</html>
