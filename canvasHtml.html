@@ -21,6 +21,7 @@
                 <li>lineTo(x,y)绘制直线</li>
                 <li>fill()填充 ---还接受参数['nonzero','evenodd']</li>
                 <li>storke()描边</li>
+                <li style="color:red">clip()裁剪</li>
                 <li>closePath()闭合路径</li>
             </ul>
             <ol>
@@ -66,6 +67,12 @@
                 <li>setTransform()</li>
                 <li>resetTransform()</li>
             </ul>
+            <ol>
+                <li>globalCompositeOperation(画新图时的遮盖策略)</li>
+                <li>['source-over','source-in','source-out','source-atop']</li>
+                <li>['destination-over','destination-in','destination-out','destination-atop']</li>
+                <li>['lighter','copy','xor','multiply','screen','overlay']</li>
+            </ol>
             <h3>new Path2D() 记录路径</h3>
         </div>
         <div>
@@ -80,6 +87,7 @@
             <button onclick="addText()">文字</button>
             <button onclick="handleCanvasStatus()">canvas状态及移动变形</button>
             <!-- <button onclick="getTransform()">变形</button> -->
+            <button onclick="clipOrigin()">区域裁剪</button>
         </div>
         <canvas id="canvas" width="500" height="500">该浏览器版本不支持canvas</canvas>
         <canvas id="canvas2" width="500" height="500">no canvas</canvas>

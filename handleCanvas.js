@@ -154,6 +154,7 @@ function handleCanvasStatus(){
     ctx.translate(100,0);//移动
     ctx.rotate(Math.PI / 6); //旋转
     ctx.scale(0.9,0.9);//缩放
+    // ctx.globalCompositeOperation = 'color';
 
 }
 
@@ -167,7 +168,18 @@ function getTransform(){
     ctx.fill();
     ctx.transform(5, sin, 5, -cos, 0, 0);
     ctx.resetTransform();
+
     // ctx.setTransform(-1, 0, 0, 1, 100, 100)
+}
+
+function clipOrigin(){
+    const ctx = document.getElementById('canvas2').getContext('2d');
+    // ctx.moveTo(20,20);
+    ctx.beginPath();
+    // ctx.lineTo(30,10);
+    // ctx.lineTo(40,20);
+    ctx.arc(50,50,40,0,Math.PI*2,false);
+    ctx.clip();
 }
 
 
