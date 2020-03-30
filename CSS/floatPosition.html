@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>浮动和定位</title>
+        <style>
+            .float_p{
+                float: left;
+                border: 2px black outset;
+                margin-right: 5em;
+                margin-bottom: 30px;
+            }
+            .float_l{
+                float: left;
+                margin-left: 20px;
+                margin-top: 40px;
+                border: green 2px inset;
+            }
+            strong.green {
+                color: #00ff00;
+            }
+            p.clearLeft{
+                border: 2px yellow solid;
+                margin-bottom: 30px;
+                clear: left;
+                position: sticky;
+            }
+        </style>
+    </head>
+    <body>
+        <strong>浮动和定位</strong>
+        <strong>浮动元素的外边距不会合并</strong>
+        <strong class="green">
+            浮动元素的包含块是其最近的块级祖先元素;
+            清除区域：clear
+        </strong>
+        <span style="border: green 2px solid;position:relative;">
+            这是一个行内元素，如果其子元素position为releate,应该会显示成什么样呢
+            <span style="position: absolute; top: 30px; left: 100px;">
+                kcdlvld
+            </span>
+            <span style="position: relative; top: 30px; left: 100px;">
+                kcdlvld
+            </span>
+            <span style="position: sticky; top: 60px;color: hotpink; font-size: 30px;">sticky</span>
+            <span style="position: fixed; top: 60px; left: 40px; color: indigo; font-size: 40px;">fixed</span>
+        </sapn>
+        <p>
+            cdsmkl dslkmkslkds dskjndskjcdsknnnnnnxsm,dmslkdsjdc 
+            dcnjdnjkdjknddnmdnkjdkjdksjdsdcnjdnjkdjknddnmdnkjdkjdksjdsdcnjdnjkdjknddnmdnkjd
+            dcnjdnjkdjknddnmdnkjdkjdksjdsdcnjdnjkdjknddnmdnkjdkjdksjdsdcnjdnjkdjknddnmdnkjd
+            dcnjdnjkdjknddnmdnkjdkjdksjdsdcnjdnjkdjknddnmdnkjdkjdksjdsdcnjdnjkdjknddnmdnkjd
+            dcnjdnjkdjknddnmdnkjdkjdksjdsdcnjdnjkdjknddnmdnkjdkjdksjdsdcnjdnjkdjknddnmdnkjd
+            kjdksjdsdcnjdnjkdjknddnmdnkjdkjdksjds.dlsocsnkcnknc,.sdmcldfvnfdnmvndklskdl
+        </p>
+        <p class="float_p">cdsmkl dslkmkslkds dskjndskjcdsknnnnnnxsm,dmslkdsjdc dcnjdnjkdjknddnmdnkjdkjdksjds.dlsocsnkcnknc,.sdmcldfvnfdnmvndklskdl</p>
+        <p class="float_l">
+            cdsmkl dslkmkslkds dskjndskjcdsknnnnnnxsm,dmslkdsjdc dcnjdnjkdjknddnmdnkjdkjddssssssssssksjds.dlsocsnkcnknc,.sdmcldfvnfdnmvndklskdl
+            cdsmkl dslkmkslkds dskjndskjcdsknnnnnnxsm,dmslkdsjdc dcnjdnjkdjknddnmdnkjdkjddssssssssssksjds.dlsocsnkcnknc,.sdmcldfvnfdnmvndklskdl
+            cdsmkl dslkmkslkds dskjndskjcdsknnnnnnxsm,dmslkdsjdc dcnjdnjkdjknddnmdnkjdkjddssssssssssksjds.dlsocsnkcnknc,.sdmcldfvnfdnmvndklskdl
+            cdsmkl dslkmkslkds dskjndskjcdsknnnnnnxsm,dmslkdsjdc dcnjdnjkdjknddnmdnkjdkjddssssssssssksjds.dlsocsnkcnknc,.sdmcldfvnfdnmvndklskdl
+            cdsmkl dslkmkslkds dskjndskjcdsknnnnnnxsm,dmslkdsjdc dcnjdnjkdjknddnmdnkjdkjddssssssssssksjds.dlsocsnkcnknc,.sdmcldfvnfdnmvndklskdl
+        </p>
+        <p class="clearLeft">hello</p>
+        <p style="border: violet 2px dotted; margin-top: 40px;">hello2222</p>
+        <div style="width:100px; height:200px; border: 4px black solid;">
+            <div style="width:40px; height:20px; border: 1px green inset;float: left;">first</div>
+            <div style="width:52px; height:30px; border: 1px green inset;float: left;">second</div>
+            <div style="width:80px; height:60px; border: 1px pink inset;float: left;">third</div>
+            <div style="width:40px; height:100px; border: 1px maroon inset;float: right;">fouth</div>
+        </div>
+        <div style="width: 30px; height: 30px; border: 5px orange outset;"></div>
+        <article style="color: #ee4411;">
+            <section>relative：元素相对于其原来的位置的偏移量，依旧在文档流中</section>
+            <section>absolute: 元素相对于其最近的非static的祖先元素，脱离了文档流</section>
+            <section>fixed: 元素相对于视窗本身</section>
+            <section>sticky: 不脱离文档流，如果设置了top=30px,sticky元素到达距离相对定位的元素顶部30px的位置时固定,这时候类似于fixed</section>
+        </article>
+        <span style="border: green 2px solid;position:relative;">
+            这是一个行内元素，如果其子元素position为releate,应该会显示成什么样呢
+            <span style="position: absolute; top: 30px; left: 100px; clip: rect(50px, 10px, 20px, 70px);">
+                kcdlvld
+            </span>
+            <span style="position: relative; top: 30px; left: 100px;">
+                kcdlvld
+            </span>
+            <span style="position: sticky; top: 60px;">sticky</span>
+        </sapn>
+        <article>
+            <section>宽度最大值 max-width  max-height</section>
+            <section>宽度最小值 min-width  min-height</section>
+        </article>
+        <article style="color: lightcoral;">
+            <section>内容溢出和裁剪</section>
+            <section>overflow  块级元素和替换元素</section>
+            <section>clip   应用于绝对定位元素,rect中的值不是边偏移，而是距元素左上角的距离</section>
+            <section>元素可见性 visible   只影响元素的显示，依旧在文档中</section>
+        </article>
+    </body>
+</html>

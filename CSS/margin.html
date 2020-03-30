@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>padding、margin、border</title>
+        <style>
+            span {
+                /* border: 5px orange groove; */
+                /* border: 5px orange inset; */
+                /* border: 5px orange ridge; */
+                border: 5px orange outset;
+                margin: 10px;
+                padding: 10px;
+                border-bottom-style: inset ;
+                border-right-style: none;
+                border-top-width: 2px;
+                /* think、medium、thin */
+                border-left-width: thin;
+                border-bottom-color: crimson;
+                /* 既想border-width存在，但是暂时又不想显示，可以设置transparent透明色 */
+                border-top-color: transparent;
+            }
+            div#top{
+                background-color: blueviolet;
+                margin-left: 10em;
+            }
+            div#bottom{
+                background-color: cadetblue;
+                width: 300px;
+                margin-top: -2em;
+                margin-left: -1em;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div id="top">
+                <span>hello</span>
+                <p>hkdc,sknksncksjcksdjns</p>
+                <p>hkdc,sknksncksjcksdjns</p>
+            </div>
+            <div id="bottom">
+                <span>hello</span>
+                <p>hkdc,sknksncksjcksdjns</p>vertical-align
+                <p>hkdc,sknksncksjcksdjns</p>
+            </div>
+            <p>
+                <strong>外边距和行内元素：</strong>
+                外边距无法影响只包含文本的行内元素的行间间距，能影响行间间距的属性只有line-height、font-size、vertical-align
+                <strong>但是可以影响水平间距</strong>
+            </p>
+        </div>
+    </body>
+</html>

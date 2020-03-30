@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>表格元素样式</title>
+        <style>
+            table {
+                border: none;
+                /* border: 1px; */
+                border-collapse:separate;
+                /* 边框间隔，应用于dispaly为table\inline-table元素，有继承性，分别对应水平间隔、垂直间隔 */
+                border-spacing: 2px 5px;
+                /* table-layout 表布局 */
+                table-layout: fixed;
+                width: 800px;
+                overflow: hidden;
+            }
+            td {
+                /* border: 3px double red; */
+                border: 3px double red;
+                padding: 5px;
+                width: 100px;
+                height: 4em;
+                /* empty-cells:是否显示空单元格,应用于display：table-cell的元素 td\th */
+                /* empty-cells: hide; */
+                text-align: right;
+                vertical-align: text-top;
+            }
+            table.table-center{
+
+                width: 600px;
+                height: 600px;
+                border: 2px solid gray;
+                border-collapse: collapse;
+
+            }
+            table.table-center td {
+                border: none;
+                text-align: center;
+                /* [top | bottom | middle | baseline] */
+                vertical-align: middle; 
+            }
+            .table-center caption {
+                font-size: 30px;
+                font-weight: 600;
+                color: orangered;
+            }
+        </style>
+    </head>
+    <body>
+        <table cellspacing="0">
+            <caption style="caption-side: top;">总标题:可以通过table来实现元素水平垂直居中效果，vertical-align来设置垂直居中效果，水平居中可以通过text-align来实现</caption>
+            <tr>
+                <td style="caption-side: top; border-collapse: collapse;">djsbjbj</td>
+                <td style="caption-side: top;">djsbjbj</td>
+            </tr>
+            <tr>
+                <td>aaaaa</td>
+                <td>bbbbb</td>
+                <td>wdqwww</td>
+                <td>dsdd</td>
+                <td>ddwewe</td>
+                <td>ecwerrrrrrrrrrrrrrr</td>
+            </tr>
+        </table>
+        <table class="table-center">
+        <caption>通过表格来实现水平垂直居中效果</caption>
+            <tr>
+                <td>
+                    <img src="./t2.jpg" width="100px" height="100px" />
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>关于line height 的影响</title>
+        <style>
+            p{
+                /* white-space: pre-line; */
+                text-indent: 2em;
+                border: 1px solid pink;
+                font-size: 20px;
+                line-height: 1.2;
+            }
+            img[id = one] {
+                /* vertical-align: center; */
+                /* vertical-align 的值是相对于line-height来计算的，line-height继承值为20*1.2=24px,vertical-algin 50% 即向上移12px */
+                vertical-align: 50%;   
+                border: 2px dotted purple;
+            }
+            img[id = two] {
+                border: 2px dotted purple;
+                margin: 10px;
+                padding:5px;
+                /* 负外边距是使行内元素挤入其他行的唯一办法 */
+                margin-top: -10px;
+            }
+            tr{
+                border: forestgreen 3px solid;
+            }
+            td {
+                font-size: 22px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p>
+                this is a test, for line-Height style, 块元素，行内元素， 行内替换元素
+                <img id="one" src="./t2.jpg" width="30px" height="30px" />
+                hello sndkdlsvjkokm n,cdsnj cdmckds as;;sjldlsdnk dkdasm.kv
+                <img  id="two" src="./t2.jpg" width="30px" height="30px" />
+                hello sndkdlsvjkokm n,cdsnj cdmckds as;;sjldlsdnk dkdasm.kv 
+            </p>
+            <table>
+                <tr>
+                    <td>
+                        <img src="./t2.jpg" width="30px" height="30px" />
+                    </td>
+                    <td>，snknjscnkjs snckjs sdcbjdsfjk; fbajhbj evnkjfhaiwh vejnkndkwj</td>
+                    <td>我浑身的本事，抵不住这轻飘飘一张纸吗</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

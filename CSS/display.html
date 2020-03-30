@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>display的值显示效果</title>
+        <style>
+            p {
+                border: tomato 2px solid;
+            }
+            .block {
+                display: block;
+            }
+            .inline{
+                display: inline;
+            }
+            .inlineBlock{
+                /* 行内块元素 */
+                /* 既有行内元素的特性，没有换行规则，又有块元素的特性，具有width、height的属性 */
+                display: inline-block;
+                font-size: 20px;
+                width: 6em;
+                padding: 3px;
+                /* 长单词是否可拆开 */
+                word-break: break-all;
+                word-wrap: break-word;
+            }
+            .listItem{
+                display: list-item;
+            }
+            .runIn{
+                display: run-in;
+            }
+            .table{
+                display: table;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p>nnnnnnnnsc dcsllkshd fnsnjsk sdcnjskhiud dldklsiou dfhufhbb</p>
+            <p class="inlineBlock">这是inline-block的样式，ncdjbsjbjdv dcjsdcj sbdchdbcjhs </p>
+            <p class="runIn">这是run in 的样式显示，看看是啥样的，run-in的话，可以使某些块级元素成为下一个元素的行内部分,
+                run-in 能让元素称为内联元素，也能成为块级元素，关键还得看下一个元素是块级还是行内元素
+                <strong>但是run-in元素的还是会从其原先的父元素继承属性</strong>
+            </p>
+            <div style="border: 1px black solid;">kslklsnmdkk</div>
+            <p style="display: table-row;">display:table-row</p>
+            <p style="display: table-row;">display:table-row</p>
+            <p style="display: table-row-group;">
+                <p>display:table-row-group</p>
+                <p>display:table-row-group</p>
+                <p>display:table-row-group</p>
+                llll
+            </p>
+            <p style="display: table-row-group;">display:table-row-group</p>
+            <div>
+                <p style="display: table-column;">display:table-cloumn</p>
+                <p style="display: table-column;">display:table-cloumn</p>  
+            </div>
+            <div style="display: table-cell;">table-cell</div>
+            <div style="display: table-cell;">table-cell</div>
+            <div style="display: table-caption;">table-caption</div>
+            <div style="display: table-caption;">table-caption</div>
+            <p style="display:table-footer-group">table-footer-group</p>
+            <p style="display:table-footer-group">table-footer-group</p>
+            <p style="display: table-header-group;">table-header-group</p>
+        </div>
+    </body>
+</html>
